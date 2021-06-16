@@ -31,6 +31,7 @@ class RedshiftDemoStack(core.Stack):
         comments_cluster_secret = _sm.Secret(
             self,
             "setRedshiftDemoClusterSecret",
+            generate_secret_string=_sm.SecretStringGenerator(exclude_characters="/@\"\ \\\'"),
             description="Redshift Demo Cluster Secret",
             secret_name="RedshiftDemoClusterSecret",
             removal_policy=core.RemovalPolicy.DESTROY

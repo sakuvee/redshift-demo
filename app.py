@@ -14,7 +14,7 @@ vpc_stack = VpcStack(
     app,
     f"{app.node.try_get_context('project')}-vpc-stack",
     stack_log_level="INFO",
-    description="Miztiik Automation: Custom Multi-AZ VPC"
+    description="Redshift Demo Custom Multi-AZ VPC"
 )
 
 
@@ -26,7 +26,7 @@ redshift_demo = RedshiftDemoStack(
     vpc=vpc_stack,
     ec2_instance_type="dc2.large",
     stack_log_level="INFO",
-    description="Miztiik Automation: Deploy Redshift cluster and load data"
+    description="Deploy Redshift cluster and load data"
 )
 
 

@@ -51,13 +51,6 @@ class VpcStack(core.Stack):
                 ]
             )
 
-        output_0 = core.CfnOutput(
-            self,
-            "AutomationFrom",
-            value=f"{GlobalArgs.SOURCE_INFO}",
-            description="To know more about this automation stack, check out our github page."
-        )
-
     # properties to share with other stacks
     @property
     def get_vpc(self):

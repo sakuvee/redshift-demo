@@ -92,12 +92,6 @@ class RedshiftDemoStack(core.Stack):
         ###########################################
         ################# OUTPUTS #################
         ###########################################
-        output_0 = core.CfnOutput(
-            self,
-            "AutomationFrom",
-            value=f"{GlobalArgs.SOURCE_INFO}",
-            description="To know more about this automation stack, check out our github page."
-        )
         output_1 = core.CfnOutput(
             self,
             "RedshiftCluster",

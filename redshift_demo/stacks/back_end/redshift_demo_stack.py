@@ -10,12 +10,9 @@ class GlobalArgs():
     Helper to define global statics
     """
 
-    OWNER = "MystiqueAutomation"
     ENVIRONMENT = "production"
     REPO_NAME = "redshift-demo"
-    SOURCE_INFO = f"https://github.com/miztiik/{REPO_NAME}"
-    VERSION = "2020_12_22"
-    MIZTIIK_SUPPORT_EMAIL = ["mystique@example.com", ]
+    VERSION = "2021-06-16"
 
 
 class RedshiftDemoStack(core.Stack):

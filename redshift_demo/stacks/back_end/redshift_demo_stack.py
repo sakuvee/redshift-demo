@@ -72,7 +72,7 @@ class RedshiftDemoStack(core.Stack):
 
         # https://docs.aws.amazon.com/quicksight/latest/user/regions.html
         quicksight_to_redshift_sg.add_ingress_rule(
-            peer=_ec2.Peer.ipv4("52.23.63.224/27"),
+            peer=_ec2.Peer.ipv4("35.158.127.192/27"),
             connection=_ec2.Port.tcp(5439),
             description="Allow QuickSight connetions"
         )

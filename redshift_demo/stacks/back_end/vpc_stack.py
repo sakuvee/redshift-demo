@@ -35,8 +35,8 @@ class VpcStack(core.Stack):
         else:
             self.vpc = _ec2.Vpc(
                 self,
-                "miztiikRedshiftDemoVpc",
-                cidr="10.10.0.0/16",
+                "RedshiftDemoVpc",
+                cidr="10.128.0.0/21",
                 max_azs=2,
                 nat_gateways=0,
                 enable_dns_support=True,

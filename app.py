@@ -3,6 +3,7 @@
 from aws_cdk import core
 
 from redshift_demo.stacks.back_end.vpc_stack import VpcStack
+from redshift_demo.stacks.back_end.bastion_stack import BastionStack
 from redshift_demo.stacks.back_end.redshift_demo_stack import RedshiftDemoStack
 
 
@@ -15,6 +16,17 @@ vpc_stack = VpcStack(
     f"{app.node.try_get_context('project')}-vpc-stack",
     stack_log_level="INFO",
     description="Redshift Demo Custom Multi-AZ VPC"
+)
+
+# Bastion stack
+
+bastion_stack = BastionStack(
+    app,
+    f"{app.node.try_get_context('project')}-bastion-stack",
+    vpc=vpc_stack,
+    ec2_instance_type="t3.nano",
+    stack_log_level="INFO",
+    description="Redshift Demo Bastion"
 )
 
 

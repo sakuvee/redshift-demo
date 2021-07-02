@@ -43,7 +43,7 @@ class BastionStack(core.Stack):
             ]
         )
 
-        bastion = _ec2.BastionHostLinux(
+        self.bastion = _ec2.BastionHostLinux(
             self,
             "bastion",
             vpc=vpc.get_vpc,
@@ -53,5 +53,11 @@ class BastionStack(core.Stack):
             instance_name="bastion",
             instance_type=_ec2.InstanceType(instance_type_identifier=ec2_instance_type),
         )
-        bastion.instance.instance.add_property_override("KeyName", "rs-demo-bastion")
-        bastion.connections.allow_from_any_ipv4(_ec2.Port.tcp(22), "Internet access SSH")
+        self.bastion.instance.instance.add_property_override("KeyName", "rs-demo-bastion")
+        self.bastion.connections.allow_from_any_ipv4(_ec2.Port.tcp(22), "Internet access SSH")
+
+    # properties to share with other stacks
+    @property
+    def get_bastion_sgs(self):
+        return self.bastion.connections.security_groups
+        

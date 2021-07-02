@@ -21,6 +21,7 @@ class RedshiftDemoStack(core.Stack):
         self,
         scope: core.Construct, id: str,
         vpc,
+        bastion,
         ec2_instance_type: str,
         stack_log_level: str,
         **kwargs
@@ -87,7 +88,8 @@ class RedshiftDemoStack(core.Stack):
             node_type=f"{ec2_instance_type}",
             cluster_subnet_group_name=demo_cluster_subnet_group.ref,
             vpc_security_group_ids=[
-                quicksight_to_redshift_sg.security_group_id]
+                quicksight_to_redshift_sg.security_group_id,
+            ].extend(bastion.get_bastion_sgs)
         )
 
         ###########################################

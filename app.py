@@ -36,6 +36,7 @@ redshift_demo = RedshiftDemoStack(
     app,
     f"{app.node.try_get_context('project')}-stack",
     vpc=vpc_stack,
+    bastion=bastion_stack,
     ec2_instance_type="dc2.large",
     stack_log_level="INFO",
     description="Deploy Redshift cluster and load data"
